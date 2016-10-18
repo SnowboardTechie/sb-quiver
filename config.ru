@@ -7,5 +7,5 @@ end
 use Rack::MethodOverride
 use UserController
 use SnowboardController
-use CatagoryController
+use CategoryController
 run ApplicationController
