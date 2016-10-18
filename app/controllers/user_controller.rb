@@ -24,4 +24,8 @@ class UserController < ApplicationController
       redirect '/quiver'
     end
   end
+
+  get '/quiver' do
+    
+  end
 end
