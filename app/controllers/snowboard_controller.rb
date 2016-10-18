@@ -1,0 +1,3 @@
+class SnowboardController < ApplicationController
+
+end
