@@ -1,1 +1,27 @@
-<h1>Sign Up</h1>
+<h1>Please complete this form to signup</h1>
+
+<form action="/signup" method="post">
+  <p>
+    <label for="email">Email:</label>
+    <input type="text" name="user[email]" required autofocus>
+    <% if flash.has?(:email_error) %>
+    <span><%= flash[:email_error] %></span>
+    <% end %>
+  </p>
+
+  <p>
+    <label for="password">Password:</label>
+    <input type="password" name="user[password]" required>
+    <% if flash.has?(:password_error) %>
+    <span><%= flash[:password_error] %></span>
+    <% end %>
+    <div>
+      <p>The password's first character must be a letter,</p>
+      <p>it must contain at least 4 characters and no more than 15 characters</p>
+      <p>and no characters other than letters, numbers and the underscore may be used</p>
+    </div>
+
+  </p>
+
+  <input type="submit" name="submit" value="Create Account">
+</form>
