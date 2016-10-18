@@ -11,7 +11,11 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do
-    erb :'application/index'
+    if session[:id].nil?
+      erb :'application/index'
+    else
+      redirect '/quiver'
+    end
   end
 
   post '/login' do
@@ -20,8 +24,13 @@ class ApplicationController < Sinatra::Base
       session[:id] = user.id
       redirect '/quiver'
     else
-      flash[:login_error] = "Unable to authenticate please try again."
-      redirect '/'
+      flash.now[:login_error] = "Unable to authenticate please try again."
+      erb :'application/index'
     end
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 end
