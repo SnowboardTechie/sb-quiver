@@ -8,6 +8,11 @@
 <p>
   <form action="/login" method="post">
     <p>
+      <% if flash.has?(:login_error) %>
+      <p>
+        <%= flash[:login_error] %>
+      </p>
+      <% end %>
       <label for="email">Email:</label>
       <input type="text" name="user[email]" required autofocus>
     </p>

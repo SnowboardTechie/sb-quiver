@@ -14,4 +14,14 @@ class ApplicationController < Sinatra::Base
     erb :'application/index'
   end
 
+  post '/login' do
+    user = User.find_by(email: params[:user][:email])
+    if user.authenticate(params[:user][:password])
+      session[:id] = user.id
+      redirect '/quiver'
+    else
+      flash[:login_error] = "Unable to authenticate please try again."
+      redirect '/'
+    end
+  end
 end
