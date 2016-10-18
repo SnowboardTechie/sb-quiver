@@ -3,7 +3,11 @@ class UserController < ApplicationController
   VALID_PASSWORD_REGEX = /^[a-zA-Z]\w{3,14}$/
 
   get '/signup' do
-    erb :'user/signup'
+    if session[:id].nil?
+      erb :'user/signup'
+    else
+      redirect '/quiver'
+    end
   end
 
   post '/signup' do
@@ -12,12 +16,12 @@ class UserController < ApplicationController
 
     if password_check.nil? || email_check.nil?
       if !email_check
-        flash[:email_error] = "Invalid email address"
+        flash.now[:email_error] = "Invalid email address"
       end
       if !password_check
-        flash[:password_error] = "Invalid password"
+        flash.now[:password_error] = "Invalid password"
       end
-      redirect '/signup'
+      erb :'user/signup'
     else
       user = User.create(params[:user])
       session[:id] = user.id
@@ -26,6 +30,12 @@ class UserController < ApplicationController
   end
 
   get '/quiver' do
-    
+    if session[:id].nil?
+      flash.now[:login_error] = "To view quiver please login"
+      erb :'application/index'
+    else
+      @user = User.find_by(id: session[:id])
+      erb :'user/quiver'
+    end
   end
 end
