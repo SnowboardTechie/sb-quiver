@@ -29,9 +29,9 @@ class CategoryController < ApplicationController
     erb :'category/all'
   end
 
-  get '/category/:slug' do
-    @category = Category.find_by_slug(params[:slug])
-    if logged_in? && @category.user == current_user
+  get '/category/:id' do
+    @category = Category.find_by_id(params[:id])
+    if logged_in?
       erb :'category/show'
     else
       redirect '/quiver'
