@@ -2,11 +2,11 @@
 <form  action="/snowboard/<%= @snowboard.id %>" method="post">
   <p>
     <label for="snowboard_name">Name:</label>
-    <input type="text" name="snowboard[:name]" value="<%= @snowboard.name %>" id="snowboard_name">
+    <input type="text" name="snowboard[name]" value="<%= @snowboard.name %>" id="snowboard_name">
   </p>
   <p>
     <label for="snowboard_brand">Brand:</label>
-    <input type="text" name="snowboard[:brand]" value="<%= @snowboard.brand %>" id="snowboard_brand">
+    <input type="text" name="snowboard[brand]" value="<%= @snowboard.brand %>" id="snowboard_brand">
   </p>
   <p>
     <label for="length">Length:</label>
