@@ -5,7 +5,7 @@
     <label for="email">Email:</label>
     <input type="text" name="user[email]" required autofocus>
     <% if flash.has?(:email_error) %>
-    <span><%= flash[:email_error] %></span>
+    <span><font color="red"><%= flash[:email_error] %></font</span>
     <% end %>
   </p>
 
@@ -13,7 +13,7 @@
     <label for="password">Password:</label>
     <input type="password" name="user[password]" required>
     <% if flash.has?(:password_error) %>
-    <span><%= flash[:password_error] %></span>
+    <span><font color="red"><%= flash[:password_error] %></font></span>
     <% end %>
     <div>
       <p>The password's first character must be a letter,</p>

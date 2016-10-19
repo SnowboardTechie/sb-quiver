@@ -4,7 +4,7 @@
     <label for="name">Category Name:</label>
     <input type="text" name="category[name]" id="name"required>
     <% if flash.has?(:category_error) %>
-    <%= flash[:category_error] %>
+    <font color="red"><%= flash[:category_error] %></font>
     <% end %>
   </p>
   <input type="submit" name="submit" value="Create Category">

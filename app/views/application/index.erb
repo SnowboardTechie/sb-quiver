@@ -10,7 +10,7 @@
     <p>
       <% if flash.has?(:login_error) %>
       <p>
-        <%= flash[:login_error] %>
+        <font color="red"><%= flash[:login_error] %></font>
       </p>
       <% end %>
       <label for="email">Email:</label>
