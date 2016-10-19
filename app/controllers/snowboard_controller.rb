@@ -32,7 +32,11 @@ class SnowboardController < ApplicationController
 
   get '/snowboard/:id' do
     @snowboard = Snowboard.find_by_id(params[:id])
-    erb :'snowboard/show'
+    if @snowboard
+      erb :'snowboard/show'
+    else
+      redirect '/quiver'
+    end
   end
 
   post '/snowboard/:id/delete' do
