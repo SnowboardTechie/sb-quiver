@@ -10,7 +10,7 @@
 <% if @snowboard.user == current_user %>
 <p>
   <form  action="/snowboard/<%= @snowboard.id %>/edit" method="get">
-    <input type="submit" name="Edit Snowboard" value="Edit Snowboard">
+    <input type="submit" value="Edit Snowboard">
   </form>
 </p>
 <form  action="/snowboard/<%= @snowboard.id %>" method="post">
