@@ -31,7 +31,6 @@ class UserController < ApplicationController
 
   get '/quiver' do
     if logged_in?
-      @user = current_user
       erb :'user/quiver'
     else
       flash.now[:login_error] = "To view quiver please login"
