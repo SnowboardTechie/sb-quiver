@@ -5,7 +5,7 @@
   <a href="/category/<%= category.slug %>"><%= category.name %></a>
   <ul>
     <% category.snowboards.each do |snowboard| %>
-    <li><a href="/snowboards/<%= snowboard.slug %>"><%= snowboard.name %></a></li>
+    <li><a href="/snowboards/<%= snowboard.slug %>"><%= snowboard.brand %> <%= snowboard.name %></a></li>
     <% end %>
   </ul>
 </div>
