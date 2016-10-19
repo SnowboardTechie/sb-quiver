@@ -1,5 +1,6 @@
 <p><a href="/snowboard/new">Create New Snowboard</a></p>
 <p><a href="/category/new">Create New Category</a></p>
+<h2>Categories:</h2>
 <% @current_user.categories.each do |category| %>
 <div class="category">
   <a href="/category/<%= category.slug %>"><%= category.name %></a>
@@ -10,4 +11,13 @@
   </ul>
 </div>
 <% end %>
+<h3>Useless boards:</h3>
+<ul>
+<% @current_user.snowboards.each do |snowboard| %>
+  <% if snowboard.categories.count == 0 %>
+    <li><a href="/snowboard/<%= snowboard.id %>"><%= snowboard.brand  %> <%= snowboard.name %></a></li>
+  <% end %>
+<% end %>
+</ul>
+
 <p><a href="/logout">Logout</a></p>
