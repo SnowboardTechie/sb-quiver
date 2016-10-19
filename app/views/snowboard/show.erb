@@ -5,7 +5,7 @@
 <h3>Shape: <%= @snowboard.shape %></h3>
 <h2>Good for:</h2>
 <% @snowboard.categories.each do |category| %>
-<h3><%= category.name %></h3>
+<h3><a href="/category/<%= category.slug %>"><%= category.name %></a></h3>
 <% end %>
 <% if @snowboard.user == current_user %>
 <p>
