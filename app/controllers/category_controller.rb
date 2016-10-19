@@ -32,4 +32,12 @@ class CategoryController < ApplicationController
       redirect '/quiver'
     end
   end
+
+  post '/category/:id/delete' do
+    category = Category.find_by_id(params[:id])
+    if logged_in? && category.user == current_user
+      category.destroy
+    end
+    redirect '/quiver'
+  end
 end
