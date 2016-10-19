@@ -23,4 +23,13 @@ class CategoryController < ApplicationController
       erb :'application/index'
     end
   end
+
+  get '/category/:slug' do
+    @category = Category.find_by_slug(params[:slug])
+    if logged_in? && @category.user == current_user
+      erb :'category/show'
+    else
+      redirect '/quiver'
+    end
+  end
 end
