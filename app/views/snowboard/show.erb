@@ -1,0 +1,9 @@
+<h1><%= @snowboard.name %></h1>
+<h2>Made by</h2>
+<h2><%= @snowboard.brand %></h2>
+<h3>Length: <%= @snowboard.length %>cm</h3>
+<h3>Shape: <%= @snowboard.shape %></h3>
+<h2>Good for:</h2>
+<% @snowboard.categories.each do |category| %>
+<h3><%= category.name %></h3>
+<% end %>
