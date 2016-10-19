@@ -30,6 +30,11 @@ class SnowboardController < ApplicationController
     end
   end
 
+  get '/snowboard/all' do
+    @snowboards = Snowboard.all
+    erb :'/snowboard/all'
+  end
+
   get '/snowboard/:id' do
     @snowboard = Snowboard.find_by_id(params[:id])
     if @snowboard
@@ -55,7 +60,4 @@ class SnowboardController < ApplicationController
       redirect to("/snowboard/#{params[:id]}")
   end
 
-  get '/snowboard/all' do
-    erb :'/snowboard/all'
-  end
 end
