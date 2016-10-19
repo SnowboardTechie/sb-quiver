@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20161018205815) do
     t.string  "shape"
     t.integer "length"
     t.integer "user_id"
-    t.integer "catagory_id"
+    t.integer "category_id"
   end
 
   create_table "users", force: :cascade do |t|

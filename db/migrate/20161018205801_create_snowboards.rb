@@ -6,7 +6,7 @@ class CreateSnowboards < ActiveRecord::Migration[5.0]
       t.string :shape
       t.integer :length
       t.integer :user_id
-      t.integer :catagory_id
+      t.integer :category_id
     end
   end
 end
