@@ -1,6 +1,7 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
+  include Helpers
   configure do
     enable :sessions unless test?
     set :session_secret, "secret"
@@ -11,10 +12,10 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do
-    if session[:id].nil?
-      erb :'application/index'
-    else
+    if logged_in?
       redirect '/quiver'
+    else
+      erb :'application/index'
     end
   end
 
