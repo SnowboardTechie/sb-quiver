@@ -40,4 +40,8 @@ class CategoryController < ApplicationController
     end
     redirect '/quiver'
   end
+
+  get '/category/all' do
+    erb :'category/all'
+  end
 end
