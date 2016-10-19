@@ -35,12 +35,19 @@ class SnowboardController < ApplicationController
     erb :'snowboard/show'
   end
 
+  post '/snowboard/:id/delete' do
+    snowboard = Snowboard.find_by_id(params[:id])
+    if logged_in? && snowboard.user == current_user
+      snowboard.destroy
+    end
+    redirect '/quiver'
+  end
+
   post '/snowboard/:id' do
     snowboard = Snowboard.find_by_id(params[:id])
     if logged_in? && current_user == snowboard.user
       snowboard.update(params[:snowboard])
     end
-
       redirect to("/snowboard/#{params[:id]}")
   end
 
