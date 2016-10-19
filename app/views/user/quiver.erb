@@ -1,3 +1,8 @@
 <p><a href="/snowboard/new">Create New Snowboard</a></p>
 <p><a href="/category/new">Create New Category</a></p>
+<% @current_user.categories.each do |category| %>
+<div class="category">
+  <a href="/categories/<%= category.slug %>"><%= category.name %></a>
+</div>
+<% end %>
 <p><a href="/logout">Logout</a></p>
