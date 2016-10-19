@@ -20,8 +20,8 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    user = User.find_by(email: params[:user][:email])
-    if user.authenticate(params[:user][:password])
+    user = User.find_by_email(params[:user][:email])
+    if user && user.authenticate(params[:user][:password])
       session[:id] = user.id
       redirect '/quiver'
     else
