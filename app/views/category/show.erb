@@ -1,0 +1,11 @@
+<h1><%= @category.name %></h1>
+<ul>
+  <% @category.snowboards.each do |snowboard| %>
+  <li><a href="/snowboard/<%= snowboard.id %>"><%= snowboard.brand %> <%= snowboard.name %></a></li>
+  <% end %>
+</ul>
+<% if @category.user == current_user %>
+<form  action="/category/<%= @category.id %>/delete" method="post">
+  <input type="submit" value="Delete <%= @category.name %>">
+</form>
+<% end %>
