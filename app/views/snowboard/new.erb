@@ -1,0 +1,32 @@
+<h1>To create a new snowboard complete the form below</h1>
+<form  action="/snowboard/new" method="post">
+  <p>
+    <label for="brand">Brand:</label>
+    <input type="text" name="snowboard[brand]" id="brand" required>
+  </p>
+  <p>
+    <label for="name">Name:</label>
+    <input type="text" name="snowboard[name]" id="name" required>
+  </p>
+  <p>
+    <label for="shape">Shape:</label>
+    <select name="snowboard[shape]" id="shape">
+      <option value="reverse">Reverse Camber</option>
+      <option value="camber">Camber</option>
+      <option value="flatToReverse">Flat to Reverse</option>
+      <option value="rockerCamber">Rocker Camber</option>
+      <option value="banana">Banana Rocker</option>
+    </select>
+  </p>
+  <p>
+    <label for="length">Length:</label>
+    <input type="number" name="snowboard[length]" id="length">
+  </p>
+  <p>
+    <label for="category_ids">Category(s):</label><br>
+    <% @current_user.categories.each do |category| %>
+    <input type="checkbox" name="snowboard[category_ids][]" value="<%= category.id %>"><%= category.name %><br>
+    <% end %>
+  </p>
+  <input type="submit" name="submit" value="Create Snowboard">
+</form>
