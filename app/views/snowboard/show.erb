@@ -9,7 +9,9 @@
 <% end %>
 <% if @snowboard.user == current_user %>
 <p>
-  <a href="/snowboard/<%= @snowboard.id %>/edit">Edit Snowboard</a>
+  <form  action="/snowboard/<%= @snowboard.id %>/edit" method="get">
+    <input type="submit" name="Edit Snowboard" value="Edit Snowboard">
+  </form>
 </p>
 <form  action="/snowboard/<%= @snowboard.id %>" method="post">
   <input type="submit" name="Delete Snowboard" value="Delete Snowboard">
