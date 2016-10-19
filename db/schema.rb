@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20161019183052) do
   create_table "categories", force: :cascade do |t|
     t.string  "name"
     t.integer "user_id"
-    t.integer "snowboard_ids"
   end
 
   create_table "category_snowboards", force: :cascade do |t|
@@ -31,7 +30,6 @@ ActiveRecord::Schema.define(version: 20161019183052) do
     t.string  "shape"
     t.integer "length"
     t.integer "user_id"
-    t.integer "category_ids"
   end
 
   create_table "users", force: :cascade do |t|
