@@ -13,6 +13,7 @@ class CategoryController < ApplicationController
       category = Category.new(params[:category])
       if category.valid?
         current_user.categories << category
+        redirect '/quiver'
       else
         flash.now[:category_error] = "Category name invalid please try again."
         erb :'/category/new'
